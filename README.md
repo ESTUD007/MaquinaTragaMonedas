@@ -20,8 +20,24 @@ o
 •	Salir: esta opción finalizará la ejecución del programa.
 Las opciones de administración requieren la introducción de una clave secreta para continuar. Esto significa que debe pedir al usuario la clave cuando se elige esta opción y volver al menú principal si la clave no es válida. 
 
-Ejecución del Programa
-El siguiente diagrama ilustra la funcionalidad principal del programa, donde:
-•	Función roja: función estática definida dentro del programa principal (main). Esta función se puede implementar en la clase del programa. 
-•	Funciones naranja: métodos públicos (funciones) pertenecientes a una clase central, idealmente llamada SlotMachine.
-![image](https://github.com/ESTUD007/MaquinaTragaMonedas/assets/151021863/7767936f-73cd-4ee3-bfc6-508cb8b1be0f)
+
+Definición de los premios
+La máquina tragaperras está diseñada para dispensar una amplia gama de premios, divididos en dos categorías principales: (1) premios simples y (2) premios aleatorios. Cada categoría de premios engloba los siguientes atributos comunes:
+•	Nombre (string): nombre del premio
+•	Símbolo 1 (int): símbolo que debe aparecer en el primer rodillo
+•	Símbolo 2 (int): símbolo que debe aparecer en el segundo rodillo
+•	Símbolo 3 (int): símbolo que debe aparecer en el tercer rodillo
+Cada tipo de premio se define por sus propias características:
+•	Los premios simples cuentan con consejos específicos que se muestran cuando aparece la combinación de símbolos correspondiente.
+•	Los premios aleatorios presentan dos tipos de consejos (consejo 1 y consejo 2), junto con la probabilidad de que se produzca cada uno de ellos. Esto significa que cuando se gana un premio aleatorio, se da uno de los dos consejos en función de las probabilidades predefinidas para ese premio.
+Los usuarios administradores son responsables de cargar la máquina tragaperras utilizando un método de carga masiva con un archivo CSV (Comma-Separated Values). Este archivo utiliza punto y coma (;) para separar la información, estructurada de la siguiente manera:
+•	tipo: especifica la categoría del premio: 1 para premios simples; y 2 para premios aleatorios. Esto ayuda a garantizar que los premios se cargan correctamente en la máquina.
+•	nombre: especifica el nombre del premio.
+•	simbolo1: indica el símbolo del primer rodillo.
+•	simbolo2: indica el símbolo del segundo rodillo.
+•	simbolo3: indica el símbolo del tercer rodillo.
+•	consejo1: para los premios simples, es el consejo mostrado; para los premios aleatorios, es el primer consejo potencial.
+•	consejo2: indica el segundo consejo potencial para los premios aleatorios.
+•	probabilidad: indica la probabilidad de que se muestre el primer consejo cuando se gana un premio. Por tanto, la probabilidad para el segundo consejo se establece automáticamente como 1 - probabilidad.
+
+
